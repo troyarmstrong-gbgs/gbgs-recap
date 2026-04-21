@@ -1,0 +1,335 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.gbgs{font-family:'Nunito',sans-serif;background:#12052e;min-height:100vh;padding-bottom:50px;color:#fff;}
+.gbgs-header{background:#5b21b6;padding:20px 20px 0;text-align:center;position:relative;}
+.gbgs-header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 2px,transparent 2px,transparent 22px);}
+.gbgs-logo{position:relative;margin-bottom:12px;}
+.gbgs-logo svg{width:220px;height:auto;}
+.head-title{font-family:'Fredoka One',cursive;font-size:clamp(26px,6vw,46px);line-height:1.1;color:#fff;text-shadow:3px 3px 0 rgba(0,0,0,.4);position:relative;margin-bottom:5px;}
+.head-title span{color:#fbbf24;}
+.head-sub{font-size:13px;font-weight:700;color:rgba(255,255,255,.75);position:relative;padding-bottom:14px;}
+.confetti{display:flex;justify-content:center;gap:5px;padding:10px 0 0;position:relative;}
+.confetti span{width:10px;height:10px;border-radius:2px;animation:bob 1.3s ease-in-out infinite alternate;}
+.confetti span:nth-child(even){animation-delay:.3s;}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+.body{padding:0 16px;max-width:680px;margin:0 auto;}
+
+.review-cta{margin:20px 0 16px;background:rgba(251,191,36,.1);border:2px solid #fbbf24;border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.review-star{width:28px;height:28px;background:#fbbf24;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);flex-shrink:0;}
+.review-text{flex:1;}
+.review-title{font-family:'Fredoka One',cursive;font-size:17px;color:#fbbf24;margin-bottom:3px;}
+.review-sub{font-size:12px;color:rgba(255,255,255,.6);font-weight:700;}
+.review-btn{display:inline-block;background:#fbbf24;color:#1a0a3e;font-family:'Fredoka One',cursive;font-size:14px;padding:8px 18px;border-radius:40px;text-decoration:none;box-shadow:0 3px 0 #92400e;white-space:nowrap;}
+
+.sec-title{font-family:'Fredoka One',cursive;font-size:22px;color:#fbbf24;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.sec-title::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,#fbbf24,transparent);border-radius:2px;}
+
+.video-wrap{margin-bottom:22px;}
+.video-box{background:rgba(255,255,255,.04);border:2px dashed rgba(251,191,36,.35);border-radius:16px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
+.play-btn{width:54px;height:54px;background:rgba(251,191,36,.15);border:2px solid rgba(251,191,36,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.play-btn::after{content:'';width:0;height:0;border-style:solid;border-width:10px 0 10px 18px;border-color:transparent transparent transparent rgba(251,191,36,.7);margin-left:4px;}
+.video-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.35);}
+
+.stats-row{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 18px;margin-bottom:18px;display:flex;gap:12px;justify-content:space-around;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-val{font-family:'Fredoka One',cursive;font-size:26px;color:#fbbf24;display:block;line-height:1;}
+.stat-lbl{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.5);margin-top:3px;display:block;}
+
+.scoreboard{background:#1b0e5f;border:2px solid rgba(255,255,255,.09);border-radius:18px;padding:18px;margin-bottom:24px;text-align:center;}
+.sb-lbl{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.4);margin-bottom:12px;}
+.score-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+.team{flex:1;min-width:115px;border-radius:14px;padding:13px 10px;}
+.team.red{background:#b91c1c;}
+.team.blue{background:#1d4ed8;}
+.tn{font-family:'Fredoka One',cursive;font-size:18px;color:#fff;}
+.ts{font-family:'Fredoka One',cursive;font-size:40px;color:#fff;line-height:1;text-shadow:2px 2px 0 rgba(0,0,0,.3);}
+.tsl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.6);margin-top:1px;}
+.vs{font-family:'Fredoka One',cursive;font-size:22px;color:#fbbf24;background:rgba(0,0,0,.3);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.winner{margin-top:12px;background:#fbbf24;border-radius:30px;padding:6px 16px;display:inline-flex;align-items:center;gap:6px;font-family:'Fredoka One',cursive;font-size:16px;color:#1a0a3e;}
+
+.game-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);border-radius:16px;margin-bottom:11px;overflow:hidden;}
+.gc-inner{display:flex;align-items:stretch;}
+.gc-logo{width:84px;flex-shrink:0;background:rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;padding:10px 7px;}
+.gc-logo svg{width:64px;height:64px;}
+.gc-info{flex:1;padding:11px 13px;}
+.gc-name{font-family:'Fredoka One',cursive;font-size:17px;color:#fff;margin-bottom:1px;}
+.gc-tag{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;}
+.gc-scores{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
+.pill{display:flex;align-items:center;gap:5px;border-radius:30px;padding:3px 10px;font-weight:800;font-size:13px;}
+.pill.r{background:rgba(220,38,38,.2);border:1px solid rgba(220,38,38,.4);color:#fca5a5;}
+.pill.b{background:rgba(29,78,216,.2);border:1px solid rgba(59,130,246,.4);color:#93c5fd;}
+.dot{width:6px;height:6px;border-radius:50%;}
+.pill.r .dot{background:#ef4444;}
+.pill.b .dot{background:#3b82f6;}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;}
+.badge.r{background:rgba(220,38,38,.22);color:#fca5a5;}
+.badge.b{background:rgba(29,78,216,.22);color:#93c5fd;}
+.badge.t{background:rgba(251,191,36,.15);color:#fbbf24;}
+.pbar{display:flex;border-radius:4px;overflow:hidden;height:4px;margin-top:7px;gap:1px;}
+.pr{background:#ef4444;border-radius:3px 0 0 3px;}
+.pb{background:#3b82f6;border-radius:0 3px 3px 0;}
+
+.footer-cta{background:#5b21b6;border-radius:18px;padding:24px 20px;text-align:center;margin-top:24px;}
+.fc-title{font-family:'Fredoka One',cursive;font-size:24px;color:#fff;margin-bottom:6px;text-shadow:2px 2px 0 rgba(0,0,0,.2);}
+.fc-sub{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:14px;font-weight:600;}
+.fc-btn{display:inline-block;background:#fbbf24;color:#1a0a3e;font-family:'Fredoka One',cursive;font-size:16px;padding:10px 26px;border-radius:50px;text-decoration:none;box-shadow:0 4px 0 #92400e;}
+</style>
+
+<div class="gbgs">
+  <div class="gbgs-header">
+    <div class="gbgs-logo">
+      <svg viewBox="0 0 440 140" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="436" height="136" rx="18" fill="#0f172a" stroke="#f97316" stroke-width="4"/>
+        <rect x="6" y="6" width="428" height="128" rx="14" fill="#1e1b4b" stroke="#a855f7" stroke-width="2"/>
+        <text x="220" y="52" font-family="Fredoka One,cursive" font-size="38" fill="white" text-anchor="middle" font-weight="bold" stroke="#1e1b4b" stroke-width="3" paint-order="stroke">GREAT BIG</text>
+        <text x="220" y="95" font-family="Fredoka One,cursive" font-size="38" fill="#fbbf24" text-anchor="middle" font-weight="bold" stroke="#1e1b4b" stroke-width="3" paint-order="stroke">GAME SHOW</text>
+        <circle cx="30" cy="30" r="8" fill="#a855f7" opacity=".6"/>
+        <circle cx="410" cy="30" r="8" fill="#f97316" opacity=".6"/>
+        <circle cx="30" cy="110" r="8" fill="#f97316" opacity=".6"/>
+        <circle cx="410" cy="110" r="8" fill="#a855f7" opacity=".6"/>
+      </svg>
+    </div>
+    <div class="head-title">Your Game Recap <span>is Here!</span></div>
+    <div class="head-sub">Thursday, November 6, 2025 &bull; Private Birthday Party &bull; Nashville, TN</div>
+    <div class="confetti">
+      <span style="background:#ef4444"></span><span style="background:#fbbf24"></span>
+      <span style="background:#3b82f6"></span><span style="background:#a855f7"></span>
+      <span style="background:#ec4899"></span><span style="background:#10b981"></span>
+      <span style="background:#fbbf24"></span><span style="background:#ef4444"></span>
+      <span style="background:#3b82f6"></span><span style="background:#a855f7"></span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="review-cta">
+      <div class="review-star"></div>
+      <div class="review-text">
+        <div class="review-title">Loved your experience?</div>
+        <div class="review-sub">Leave us a review — it takes 30 seconds and means the world to us!</div>
+      </div>
+      <a class="review-btn" href="https://g.page/r/greatbiggameshow/review">Leave a Review</a>
+    </div>
+
+    <div class="video-wrap">
+      <div class="sec-title">Highlight Reel</div>
+      <div class="video-box">
+        <div class="play-btn"></div>
+        <div class="video-label">Your highlight video will appear here</div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat"><span class="stat-val">7</span><span class="stat-lbl">Games Played</span></div>
+      <div class="stat"><span class="stat-val">13</span><span class="stat-lbl">Players</span></div>
+      <div class="stat"><span class="stat-val" style="font-size:20px;">Birthday</span><span class="stat-lbl">Occasion</span></div>
+    </div>
+
+    <div class="scoreboard">
+      <div class="sb-lbl">Final Score</div>
+      <div class="score-row">
+        <div class="team red"><div class="tn">Red Team</div><div class="ts">15,825</div><div class="tsl">Total Points</div></div>
+        <div class="vs">VS</div>
+        <div class="team blue"><div class="tn">Blue Team</div><div class="ts">14,588</div><div class="tsl">Total Points</div></div>
+      </div>
+      <div style="margin-top:12px"><div class="winner">&#127942; Red Team Wins! &#127942;</div></div>
+      <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:8px;font-weight:700;">Margin of victory: 1,237 points</div>
+    </div>
+
+    <div class="sec-title">Game by Game</div>
+
+    <div class="game-card">
+      <div class="gc-inner">
+        <div class="gc-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="10" fill="#7f1d1d"/>
+            <rect x="4" y="4" width="56" height="56" rx="7" fill="#b91c1c"/>
+            <circle cx="20" cy="38" r="7" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <circle cx="32" cy="38" r="7" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <circle cx="44" cy="38" r="7" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <text x="32" y="22" font-family="Fredoka One,cursive" font-size="8" fill="white" text-anchor="middle">REMEMBER</text>
+            <text x="32" y="31" font-family="Fredoka One,cursive" font-size="8" fill="white" text-anchor="middle">ME</text>
+            <text x="20" y="42" font-family="sans-serif" font-size="9" fill="white" text-anchor="middle">&#128065;</text>
+            <text x="32" y="42" font-family="sans-serif" font-size="9" fill="white" text-anchor="middle">&#128065;</text>
+            <text x="44" y="42" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle">?</text>
+          </svg>
+        </div>
+        <div class="gc-info">
+          <div class="gc-name">Remember Me</div>
+          <div class="gc-tag">It's all in the details</div>
+          <div class="gc-scores">
+            <div class="pill r"><div class="dot"></div>Red: 1,500</div>
+            <div class="pill b"><div class="dot"></div>Blue: 1,250</div>
+          </div>
+          <div><span class="badge r">Red wins</span></div>
+          <div class="pbar"><div class="pr" style="width:54.5%"></div><div class="pb" style="width:45.5%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="gc-inner">
+        <div class="gc-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="10" fill="#1e3a5f"/>
+            <rect x="4" y="4" width="56" height="56" rx="7" fill="#1d4ed8"/>
+            <rect x="12" y="44" width="10" height="14" rx="2" fill="rgba(255,255,255,.85)"/>
+            <rect x="27" y="34" width="10" height="24" rx="2" fill="rgba(255,255,255,.85)"/>
+            <rect x="42" y="24" width="10" height="34" rx="2" fill="rgba(255,255,255,.85)"/>
+            <text x="32" y="18" font-family="Fredoka One,cursive" font-size="7" fill="white" text-anchor="middle">BUILD IT UP</text>
+          </svg>
+        </div>
+        <div class="gc-info">
+          <div class="gc-name">Build It Up</div>
+          <div class="gc-tag">Build fast and stand tall</div>
+          <div class="gc-scores">
+            <div class="pill r"><div class="dot"></div>Red: 1,100</div>
+            <div class="pill b"><div class="dot"></div>Blue: 0</div>
+          </div>
+          <div><span class="badge r">Red dominates</span></div>
+          <div class="pbar"><div class="pr" style="width:100%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="gc-inner">
+        <div class="gc-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="10" fill="#3b0764"/>
+            <rect x="4" y="4" width="56" height="56" rx="7" fill="#7c3aed"/>
+            <circle cx="32" cy="36" r="16" fill="rgba(0,0,0,.25)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <circle cx="23" cy="42" r="5" fill="#ef4444"/>
+            <circle cx="32" cy="42" r="5" fill="#fbbf24"/>
+            <circle cx="41" cy="42" r="5" fill="#10b981"/>
+            <text x="32" y="19" font-family="Fredoka One,cursive" font-size="6.5" fill="white" text-anchor="middle">READY BET GO</text>
+          </svg>
+        </div>
+        <div class="gc-info">
+          <div class="gc-name">Ready Bet Go</div>
+          <div class="gc-tag">Confidence is your currency</div>
+          <div class="gc-scores">
+            <div class="pill r"><div class="dot"></div>Red: 3,000</div>
+            <div class="pill b"><div class="dot"></div>Blue: 3,000</div>
+          </div>
+          <div><span class="badge t">It's a tie!</span></div>
+          <div class="pbar"><div class="pr" style="width:50%"></div><div class="pb" style="width:50%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="gc-inner">
+        <div class="gc-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="10" fill="#451a03"/>
+            <rect x="4" y="4" width="56" height="56" rx="7" fill="#b45309"/>
+            <circle cx="32" cy="36" r="16" fill="rgba(0,0,0,.25)" stroke="rgba(255,255,255,.5)" stroke-width="2"/>
+            <line x1="32" y1="20" x2="32" y2="36" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="32" cy="36" r="2.5" fill="white"/>
+            <text x="32" y="16" font-family="Fredoka One,cursive" font-size="7" fill="white" text-anchor="middle">SPIN OUT</text>
+          </svg>
+        </div>
+        <div class="gc-info">
+          <div class="gc-name">Spin Out</div>
+          <div class="gc-tag">Big wheel, bigger risks</div>
+          <div class="gc-scores">
+            <div class="pill r"><div class="dot"></div>Red: 0</div>
+            <div class="pill b"><div class="dot"></div>Blue: 2,750</div>
+          </div>
+          <div><span class="badge b">Blue dominates</span></div>
+          <div class="pbar"><div class="pb" style="width:100%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="gc-inner">
+        <div class="gc-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="10" fill="#052e16"/>
+            <rect x="4" y="4" width="56" height="56" rx="7" fill="#16a34a"/>
+            <rect x="10" y="28" width="9" height="9" rx="2" fill="rgba(255,255,255,.8)"/>
+            <rect x="27" y="28" width="9" height="9" rx="2" fill="rgba(255,255,255,.8)"/>
+            <rect x="45" y="28" width="9" height="9" rx="2" fill="rgba(255,255,255,.8)"/>
+            <line x1="10" y1="44" x2="54" y2="44" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+            <text x="32" y="18" font-family="Fredoka One,cursive" font-size="7.5" fill="white" text-anchor="middle">BLOCKCHAIN</text>
+          </svg>
+        </div>
+        <div class="gc-info">
+          <div class="gc-name">Blockchain</div>
+          <div class="gc-tag">Build your chain one letter at a time</div>
+          <div class="gc-scores">
+            <div class="pill r"><div class="dot"></div>Red: 1,500</div>
+            <div class="pill b"><div class="dot"></div>Blue: 400</div>
+          </div>
+          <div><span class="badge r">Red wins</span></div>
+          <div class="pbar"><div class="pr" style="width:78.9%"></div><div class="pb" style="width:21.1%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="gc-inner">
+        <div class="gc-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="10" fill="#1c1917"/>
+            <rect x="4" y="4" width="56" height="56" rx="7" fill="#44403c"/>
+            <ellipse cx="32" cy="40" rx="18" ry="11" fill="rgba(0,0,0,.4)" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+            <rect x="20" y="26" width="24" height="16" rx="3" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+            <line x1="26" y1="34" x2="38" y2="34" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+            <text x="32" y="17" font-family="Fredoka One,cursive" font-size="5.5" fill="white" text-anchor="middle">DRAWING IN THE DARK</text>
+          </svg>
+        </div>
+        <div class="gc-info">
+          <div class="gc-name">Drawing in the Dark</div>
+          <div class="gc-tag">Art meets adrenaline</div>
+          <div class="gc-scores">
+            <div class="pill r"><div class="dot"></div>Red: 1,500</div>
+            <div class="pill b"><div class="dot"></div>Blue: 1,000</div>
+          </div>
+          <div><span class="badge r">Red wins</span></div>
+          <div class="pbar"><div class="pr" style="width:60%"></div><div class="pb" style="width:40%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="gc-inner">
+        <div class="gc-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="10" fill="#4a044e"/>
+            <rect x="4" y="4" width="56" height="56" rx="7" fill="#9d174d"/>
+            <circle cx="32" cy="38" r="12" fill="rgba(0,0,0,.25)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <circle cx="32" cy="38" r="5" fill="rgba(255,255,255,.85)"/>
+            <line x1="32" y1="22" x2="32" y2="26" stroke="rgba(255,255,255,.5)" stroke-width="2"/>
+            <line x1="32" y1="50" x2="32" y2="54" stroke="rgba(255,255,255,.5)" stroke-width="2"/>
+            <line x1="18" y1="38" x2="22" y2="38" stroke="rgba(255,255,255,.5)" stroke-width="2"/>
+            <line x1="42" y1="38" x2="46" y2="38" stroke="rgba(255,255,255,.5)" stroke-width="2"/>
+            <text x="32" y="17" font-family="Fredoka One,cursive" font-size="7" fill="white" text-anchor="middle">CHIPSHOT</text>
+          </svg>
+        </div>
+        <div class="gc-info">
+          <div class="gc-name">Chipshot</div>
+          <div class="gc-tag">One chip can change everything</div>
+          <div class="gc-scores">
+            <div class="pill r"><div class="dot"></div>Red: 0</div>
+            <div class="pill b"><div class="dot"></div>Blue: 0</div>
+          </div>
+          <div><span class="badge t">Tied — score adjusted after</span></div>
+          <div class="pbar"><div class="pr" style="width:50%"></div><div class="pb" style="width:50%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-cta">
+      <div class="fc-title">Ready for a Rematch?</div>
+      <div class="fc-sub">With 17+ rotating mini-games, every visit is a brand new show!</div>
+      <a class="fc-btn" href="https://greatbiggameshow.com/book">Book Your Next Game Show</a>
+    </div>
+
+    <div style="text-align:center;margin-top:22px;font-size:11px;color:rgba(255,255,255,.25);font-weight:700;letter-spacing:1px;">GREAT BIG GAME SHOW &bull; NASHVILLE, TN</div>
+  </div>
+</div>
